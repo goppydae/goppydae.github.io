@@ -17,3 +17,11 @@ The connective tissue of the organization. Protobufs is used to maintain strictl
 ### Python
 
 The province of data processing, scripting, automation, and rapid prototyping.
+
+## Repositories
+
+### Sharur
+
+[Sharur Repository](https://goppydae.github.io/sharur/)
+
+`sharur` is a powerful, local-first agentic harness designed for developers who want a flexible and reliable assistant that runs on their own hardware. It prioritizes local LLMs (via Ollama and llama.cpp) but adapts seamlessly to cloud providers like OpenAI, Anthropic, and Google Gemini.
