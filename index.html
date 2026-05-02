@@ -1,44 +1,191 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GoPPydae</title>
   <style>
+    :root {
+      --bg-color: #0d1117;
+      --text-color: #c9d1d9;
+      --heading-color: #ffffff;
+      --accent-color: #58a6ff;
+      --card-bg: #161b22;
+      --border-color: #30363d;
+      --btn-bg: #238636;
+      --btn-hover: #2ea043;
+    }
+
     body {
-      background-color: #202020;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+
+    h1, h2, h3 {
+      color: var(--heading-color);
+      margin-top: 1.5em;
+      margin-bottom: 0.5em;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.3em;
+    }
+
+    h2 {
+      font-size: 1.8em;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 0.3em;
+      margin-top: 2em;
+    }
+
+    blockquote {
+      border-left: 4px solid var(--accent-color);
+      background-color: rgba(88, 166, 255, 0.1);
+      padding: 15px 20px;
+      margin: 20px 0;
+      border-radius: 0 6px 6px 0;
+      font-style: italic;
+      font-size: 1.1em;
+    }
+
+    blockquote p {
+      margin: 0;
+    }
+
+    p {
+      margin-bottom: 1em;
+    }
+
+    code {
+      background-color: rgba(110, 118, 129, 0.4);
+      padding: 0.2em 0.4em;
+      border-radius: 6px;
+      font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+      font-size: 0.85em;
+    }
+
+    /* Grid for Core Technologies */
+    .tech-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .tech-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .tech-card h3 {
+      margin-top: 0;
+      color: var(--accent-color);
+    }
+
+    /* Repository Section */
+    .repo-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 25px;
+      margin-top: 20px;
+    }
+
+    .repo-card h3 {
+      margin-top: 0;
+      font-size: 1.5em;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    a.button {
+      display: inline-block;
+      text-decoration: none;
+      background-color: var(--btn-bg);
       color: #ffffff;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.9em;
+      transition: background-color 0.2s;
+      border: 1px solid rgba(240, 246, 252, 0.1);
+    }
+
+    a.button:hover {
+      background-color: var(--btn-hover);
+    }
+
+    a.button.secondary {
+      background-color: #21262d;
+      border-color: var(--border-color);
+    }
+
+    a.button.secondary:hover {
+      background-color: #30363d;
     }
   </style>
 </head>
 <body>
-<h1 id="welcome-to-goppydae-">Welcome to GoPPydae 🐟</h1>
 
-<blockquote>
-  <p>GoPPydae is the family of programs utilizing Go, Protocol Buffers, and Python to accomplish or support various tasks.</p>
-</blockquote>
+<div class="container">
+  <h1 id="welcome-to-goppydae-">Welcome to GoPPydae 🐟</h1>
 
-<p>We build performant, scalable, and easily maintainable tools by leveraging the unique strengths of the core tech stack. Whether it’s high-speed backend services or complex data processing, the ecosystem is designed to work together seamlessly.</p>
+  <blockquote>
+    <p>GoPPydae is the family of programs utilizing Go, Protocol Buffers, and Python to accomplish or support various tasks.</p>
+  </blockquote>
 
-<h2 id="core-technologies">Core Technologies</h2>
+  <p>We build performant, scalable, and easily maintainable tools by leveraging the unique strengths of the core tech stack. Whether it’s high-speed backend services or complex data processing, the ecosystem is designed to work together seamlessly.</p>
 
-<h3 id="go">Go</h3>
+  <h2 id="core-technologies">Core Technologies</h2>
+  
+  <div class="tech-grid">
+    <div class="tech-card">
+      <h3 id="go">Go</h3>
+      <p>Powering high-concurrency backend services, CLI tools, and systems that require raw performance and fast execution.</p>
+    </div>
 
-<p>Powering high-concurrency backend services, CLI tools, and systems that require raw performance and fast execution.</p>
+    <div class="tech-card">
+      <h3 id="protocol-buffers-protobuf">Protocol Buffers</h3>
+      <p>The connective tissue of the organization. Protobufs is used to maintain strictly typed, language-agnostic, and lightning-fast communication contracts.</p>
+    </div>
 
-<h3 id="protocol-buffers-protobuf">Protocol Buffers (Protobuf)</h3>
+    <div class="tech-card">
+      <h3 id="python">Python</h3>
+      <p>The province of data processing, scripting, automation, and rapid prototyping.</p>
+    </div>
+  </div>
 
-<p>The connective tissue of the organization. Protobufs is used to maintain strictly typed, language-agnostic, and lightning-fast communication contracts between applications or their components.</p>
+  <h2 id="repositories">Repositories</h2>
 
-<h3 id="python">Python</h3>
+  <div class="repo-card">
+    <h3 id="sharur">Sharur</h3>
+    <p><code>sharur</code> is a powerful, local-first agentic harness designed for developers who want a flexible and reliable assistant that runs on their own hardware. It prioritizes local LLMs (via Ollama and llama.cpp) but adapts seamlessly to cloud providers like OpenAI, Anthropic, and Google Gemini.</p>
+    
+    <div class="button-group">
+      <a href="https://github.com/goppydae/sharur/" class="button">View Repository</a>
+      <a href="https://goppydae.github.io/sharur/" class="button secondary">Read Documentation</a>
+    </div>
+  </div>
 
-<p>The province of data processing, scripting, automation, and rapid prototyping.</p>
+</div>
 
-<h2 id="repositories">Repositories</h2>
-
-<h3 id="sharur">Sharur</h3>
-
-<p><code class="language-plaintext highlighter-rouge">sharur</code> is a powerful, local-first agentic harness designed for developers who want a flexible and reliable assistant that runs on their own hardware. It prioritizes local LLMs (via Ollama and llama.cpp) but adapts seamlessly to cloud providers like OpenAI, Anthropic, and Google Gemini.</p>
-
-<p><a href="https://github.com/goppydae/sharur/">Sharur Repository</a></p>
-
-<p><a href="https://goppydae.github.io/sharur/">Sharur Documentation</a></p>
 </body>
 </html>
