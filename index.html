@@ -194,8 +194,17 @@
     .hero-body {
       color: var(--text-muted);
       font-size: 1rem;
-      max-width: 640px;
+      max-width: 1000px;
       line-height: 1.75;
+    }
+
+    .hero-body code {
+      background: rgba(110, 118, 129, 0.3);
+      padding: 0.15em 0.45em;
+      border-radius: 4px;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.85em;
+      color: var(--text);
     }
 
     /* ───── SECTION COMMON ───── */
@@ -359,7 +368,7 @@
       color: var(--text-muted);
       line-height: 1.7;
       margin-bottom: 24px;
-      max-width: 680px;
+      max-width: 800px;
     }
 
     .project-desc code {
@@ -605,6 +614,7 @@
       <p>GoPPydae is the family of programs utilizing Go, Protocol Buffers, and Python to accomplish or support various tasks.</p>
     </div>
     <p class="hero-body">We build performant, scalable, and easily maintainable tools by leveraging the unique strengths of the core tech stack. Whether it's high-speed backend services or complex data processing, the ecosystem is designed to work together seamlessly.</p>
+    <p class="hero-body" style="margin-top: 16px;">Go and Python with Protocol Buffers is a proven stack for high-performance, cross-language microservices. Go owns performance-critical services; Python handles data science, ML, and automation. Communication is anchored by centralized <code>.proto</code> files defining shared data structures and service contracts, from which language-specific message types, gRPC interfaces, and client stubs are generated for both languages. The runtime layer is completed by the standard protobuf library via PyPI for Python and Google's official protobuf modules for Go — giving the GoPPydae ecosystem a consistent, efficient serialization foundation across both languages.</p>
   </div>
 
   <div class="section-sep"><hr></div>
