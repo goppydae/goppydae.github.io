@@ -727,6 +727,28 @@
           "https://img.shields.io/badge/Go-00ADD8?style=flat&labelColor=161b22&logo=go&logoColor=00ADD8",
           "https://img.shields.io/badge/Python-3776AB?style=flat&labelColor=161b22&logo=python&logoColor=3776AB"
         ]
+      },
+      {
+        name: "GAPI",
+        slug: "gapi",
+        description: "A versatile toolkit enabling seamless orchestration and scaling of daemons.",
+        repo: "",
+        docs: "",
+        badges: [
+          "https://img.shields.io/badge/Go-00ADD8?style=flat&labelColor=161b22&logo=go&logoColor=00ADD8",
+          "https://img.shields.io/badge/Python-3776AB?style=flat&labelColor=161b22&logo=python&logoColor=3776AB"
+        ]
+      },
+      {
+        name: "Goblin",
+        slug: "goblin",
+        description: "Orchestration and coordination of autonomous agents through events and supervision in distributed environments.",
+        repo: "",
+        docs: "",
+        badges: [
+          "https://img.shields.io/badge/Go-00ADD8?style=flat&labelColor=161b22&logo=go&logoColor=00ADD8",
+          "https://img.shields.io/badge/Python-3776AB?style=flat&labelColor=161b22&logo=python&logoColor=3776AB"
+        ]
       }
     ];
 
@@ -748,6 +770,10 @@
         ? `<a href="${p.docs}" class="button secondary" target="_blank" rel="noopener">${ICON_DOCS} Read Documentation</a>`
         : '';
 
+      const repoBtn = p.repo
+        ? `<a href="${p.repo}" class="button primary" target="_blank" rel="noopener">${ICON_GITHUB} View Repository</a>`
+        : '';
+
       return `
         <div class="project-card animate-in">
           <div class="project-card-glow"></div>
@@ -758,7 +784,7 @@
           <p class="project-desc">${renderDesc(p.description)}</p>
           ${badgesHtml}
           <div class="button-group">
-            <a href="${p.repo}" class="button primary" target="_blank" rel="noopener">${ICON_GITHUB} View Repository</a>
+            ${repoBtn}
             ${docsBtn}
           </div>
         </div>`;
