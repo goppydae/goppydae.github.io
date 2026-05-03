@@ -29,6 +29,26 @@
       --radius:      8px;
       --radius-lg:   12px;
       --nav-h:       60px;
+      --nav-blur-bg: rgba(13, 17, 23, 0.82);
+    }
+
+    :root[data-theme="light"] {
+      --bg:          #ffffff;
+      --bg-raised:   #f6f8fa;
+      --surface:     #f6f8fa;
+      --surface-2:   #eaeef2;
+      --border:      #d0d7de;
+      --border-subtle: #d8dee4;
+      --text:        #1f2328;
+      --text-muted:  #636c76;
+      --heading:     #1f2328;
+      --accent:      #0969da;
+      --accent-dim:  rgba(9, 105, 218, 0.08);
+      --accent-glow: rgba(9, 105, 218, 0.15);
+      --green:       #1a7f37;
+      --green-bg:    #1f883d;
+      --green-hover: #1a7f37;
+      --nav-blur-bg: rgba(255, 255, 255, 0.88);
     }
 
     html { scroll-behavior: smooth; }
@@ -56,7 +76,7 @@
     }
 
     nav.scrolled {
-      background: rgba(13, 17, 23, 0.82);
+      background: var(--nav-blur-bg);
       border-color: var(--border-subtle);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
@@ -123,6 +143,55 @@
       color: var(--heading);
       border-color: var(--border);
       background: var(--surface);
+    }
+
+    /* ───── THEME SWITCHER ───── */
+    .theme-switcher {
+      display: flex;
+      align-items: center;
+      height: 43px;
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      overflow: hidden;
+      margin-left: 4px;
+      flex-shrink: 0;
+    }
+
+    .theme-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 100%;
+      background: transparent;
+      border: none;
+      border-right: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: color 0.15s, background 0.15s;
+      padding: 0;
+      flex-shrink: 0;
+    }
+
+    .theme-btn:last-child {
+      border-right: none;
+    }
+
+    .theme-btn svg {
+      width: 15px;
+      height: 15px;
+      fill: currentColor;
+      flex-shrink: 0;
+    }
+
+    .theme-btn:hover {
+      color: var(--heading);
+      background: var(--surface);
+    }
+
+    .theme-btn.active {
+      color: var(--accent);
+      background: var(--accent-dim);
     }
 
     /* ───── HERO ───── */
@@ -368,7 +437,7 @@
       color: var(--text-muted);
       line-height: 1.7;
       margin-bottom: 24px;
-      max-width: 800px;
+      max-width: 680px;
     }
 
     .project-desc code {
@@ -601,6 +670,17 @@
           </svg>
           GitHub
         </a>
+        <div class="theme-switcher" role="group" aria-label="Color theme">
+            <button class="theme-btn" id="btn-light" aria-label="Light theme" title="Light">
+              <svg viewBox="0 0 16 16"><path d="M8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.061zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.061 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z"/></svg>
+            </button>
+            <button class="theme-btn" id="btn-system" aria-label="System theme" title="System">
+              <svg viewBox="0 0 16 16"><path d="M1.5 2.75C1.5 1.784 2.284 1 3.25 1h9.5c.966 0 1.75.784 1.75 1.75v7.5A1.75 1.75 0 0112.75 12H9.5v1.5h1.75a.75.75 0 010 1.5h-6.5a.75.75 0 010-1.5H6.5V12H3.25A1.75 1.75 0 011.5 10.25v-7.5zM3.25 2.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h9.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25H3.25z"/></svg>
+            </button>
+            <button class="theme-btn" id="btn-dark" aria-label="Dark theme" title="Dark">
+              <svg viewBox="0 0 16 16"><path d="M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z"/></svg>
+            </button>
+          </div>
       </div>
     </div>
   </nav>
@@ -614,7 +694,7 @@
       <p>GoPPydae is the family of programs utilizing Go, Protocol Buffers, and Python to accomplish or support various tasks.</p>
     </div>
     <p class="hero-body">We build performant, scalable, and easily maintainable tools by leveraging the unique strengths of the core tech stack. Whether it's high-speed backend services or complex data processing, the ecosystem is designed to work together seamlessly.</p>
-    <p class="hero-body" style="margin-top: 16px;">Go and Python with Protocol Buffers is a proven stack for high-performance, cross-language microservices. Go owns performance-critical services; Python handles data science, ML, and automation. Communication is anchored by centralized <code>.proto</code> files defining shared data structures and service contracts, from which language-specific message types, gRPC interfaces, and client stubs are generated for both languages. The runtime layer is completed by the standard protobuf library via PyPI for Python and Google's official protobuf modules for Go — giving the GoPPydae ecosystem a consistent, efficient serialization foundation across both languages.</p>
+
   </div>
 
   <div class="section-sep"><hr></div>
@@ -644,11 +724,11 @@
         <p>The province of data processing, scripting, automation, and rapid prototyping within the ecosystem.</p>
       </div>
     </div>
+    <p class="hero-body" style="margin-top: 24px;">Go and Python with Protocol Buffers is a proven stack for high-performance, cross-language microservices. Go owns performance-critical services; Python handles data science, ML, and automation. Communication is anchored by a centralized <code>.proto</code> file defining shared data structures and service contracts, from which language-specific message types, gRPC interfaces, and client stubs are generated for both languages. The runtime layer is completed by the standard protobuf library via PyPI for Python and Google's official protobuf modules for Go — giving the GoPPydae ecosystem a consistent, efficient serialization foundation across both languages.</p>
   </section>
 
   <div class="section-sep"><hr></div>
 
-  <!-- ── PROJECTS ── -->
   <section id="projects">
     <div class="section-header animate-in">
       <div>
@@ -677,24 +757,10 @@
   </footer>
 
   <script>
-    // ── Sticky nav scroll effect ──
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 10);
-    }, { passive: true });
+    // ═══════════════════════════════════════════════
+    // DATA — edit PROJECTS to add/update projects
+    // ═══════════════════════════════════════════════
 
-    // ── Entrance animations via IntersectionObserver ──
-    // ── Entrance animations via IntersectionObserver ──
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    // ── Render projects from JSON ──
     // ==========================================================
     // ADD A PROJECT: add a new object to the PROJECTS array below.
     //
@@ -709,18 +775,6 @@
     //   docs        — documentation URL (shows "Read Documentation" button)
     //   badges      — array of shields.io badge URLs
     //                 tip: build them at https://shields.io/
-    //
-    // Example project object:
-    // {
-    //   name: "My Tool",
-    //   slug: "my-tool",
-    //   description: "`my-tool` does something cool.",
-    //   repo: "https://github.com/goppydae/my-tool",
-    //   docs: "https://goppydae.github.io/my-tool/",
-    //   badges: [
-    //     "https://img.shields.io/github/stars/goppydae/my-tool?style=flat&labelColor=161b22&color=30363d&logo=github&logoColor=c9d1d9"
-    //   ]
-    // }
     // ==========================================================
 
     const PROJECTS = [
@@ -762,28 +816,39 @@
       }
     ];
 
-    // ── Icon SVGs ──
+    // ═══════════════════════════════════════════════
+    // RENDER HELPERS
+    // ═══════════════════════════════════════════════
+
+    const root = document.documentElement;
+
     const ICON_GITHUB = `<svg class="icon" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>`;
-    const ICON_DOCS  = `<svg class="icon" viewBox="0 0 16 16"><path d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 010 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 010 1.5H1.75A.75.75 0 011 7.75zm0 5a.75.75 0 01.75-.75H8a.75.75 0 010 1.5H1.75a.75.75 0 01-.75-.75z"/></svg>`;
+    const ICON_DOCS   = `<svg class="icon" viewBox="0 0 16 16"><path d="M1 2.75A.75.75 0 011.75 2h12.5a.75.75 0 010 1.5H1.75A.75.75 0 011 2.75zm0 5A.75.75 0 011.75 7h12.5a.75.75 0 010 1.5H1.75A.75.75 0 011 7.75zm0 5a.75.75 0 01.75-.75H8a.75.75 0 010 1.5H1.75a.75.75 0 01-.75-.75z"/></svg>`;
 
     function renderDesc(text) {
-      // Convert `backtick` spans to <code> elements
       return text.replace(/`([^`]+)`/g, '<code>$1</code>');
+    }
+
+    function badgeUrl(url) {
+      const isLight = root.getAttribute('data-theme') === 'light';
+      if (!isLight) return url;
+      return url
+        .replace(/labelColor=161b22/g, 'labelColor=f6f8fa')
+        .replace(/labelColor=0d1117/g, 'labelColor=ffffff')
+        .replace(/&color=30363d/g, '&color=d0d7de')
+        .replace(/&logoColor=c9d1d9/g, '&logoColor=636c76');
     }
 
     function renderProject(p) {
       const badgesHtml = p.badges && p.badges.length
-        ? `<div class="badges">${p.badges.map(url => `<img src="${url}" alt="">`).join('')}</div>`
+        ? `<div class="badges">${p.badges.map(url => `<img src="${badgeUrl(url)}" alt="">`).join('')}</div>`
         : '';
-
       const docsBtn = p.docs
         ? `<a href="${p.docs}" class="button secondary" target="_blank" rel="noopener">${ICON_DOCS} Read Documentation</a>`
         : '';
-
       const repoBtn = p.repo
         ? `<a href="${p.repo}" class="button primary" target="_blank" rel="noopener">${ICON_GITHUB} View Repository</a>`
         : '';
-
       return `
         <div class="project-card animate-in">
           <div class="project-card-glow"></div>
@@ -801,12 +866,64 @@
     }
 
     const container = document.getElementById('projects-list');
-    container.innerHTML = PROJECTS.map(renderProject).join('');
 
-    // Observe newly rendered cards for entrance animation
-    container.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
+    function renderProjects() {
+      container.innerHTML = PROJECTS.map(renderProject).join('');
+      container.querySelectorAll('.animate-in').forEach(el => el.classList.add('visible'));
+    }
 
-    // Observe static animate-in and stagger elements
+    // ═══════════════════════════════════════════════
+    // THEME SWITCHER (light / system / dark)
+    // ═══════════════════════════════════════════════
+
+    const btnLight  = document.getElementById('btn-light');
+    const btnSystem = document.getElementById('btn-system');
+    const btnDark   = document.getElementById('btn-dark');
+
+    function applyTheme(mode) {
+      if (mode === 'system') {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        root.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+      } else {
+        root.setAttribute('data-theme', mode);
+      }
+      [btnLight, btnSystem, btnDark].forEach(b => b.classList.remove('active'));
+      if (mode === 'light')  btnLight.classList.add('active');
+      if (mode === 'system') btnSystem.classList.add('active');
+      if (mode === 'dark')   btnDark.classList.add('active');
+      renderProjects();
+    }
+
+    const savedMode = localStorage.getItem('goppydae-theme-mode') || 'system';
+    applyTheme(savedMode);
+
+    btnLight.addEventListener('click',  () => { localStorage.setItem('goppydae-theme-mode', 'light');  applyTheme('light'); });
+    btnSystem.addEventListener('click', () => { localStorage.setItem('goppydae-theme-mode', 'system'); applyTheme('system'); });
+    btnDark.addEventListener('click',   () => { localStorage.setItem('goppydae-theme-mode', 'dark');   applyTheme('dark'); });
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+      if ((localStorage.getItem('goppydae-theme-mode') || 'system') === 'system') applyTheme('system');
+    });
+
+    // ═══════════════════════════════════════════════
+    // NAV + ENTRANCE ANIMATIONS
+    // ═══════════════════════════════════════════════
+
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 10);
+    }, { passive: true });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    // Project cards are already marked visible by renderProjects(); observe static elements
     document.querySelectorAll('.animate-in, .stagger-children').forEach(el => {
       if (el.id === 'hero-block') {
         setTimeout(() => el.classList.add('visible'), 80);
